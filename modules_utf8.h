@@ -5,7 +5,7 @@
  *
  * Modules included by this file are: danish, dutch, english, finnish, french,
  * german, hungarian, italian, norwegian, porter, portuguese, romanian,
- * russian, spanish, swedish, turkish
+ * russian, spanish, swedish, tamil, turkish
  */
 
 #include "stem_UTF_8_danish.h"
@@ -23,6 +23,7 @@
 #include "stem_UTF_8_russian.h"
 #include "stem_UTF_8_spanish.h"
 #include "stem_UTF_8_swedish.h"
+#include "stem_UTF_8_tamil.h"
 #include "stem_UTF_8_turkish.h"
 
 typedef enum {
@@ -95,6 +96,9 @@ static struct stemmer_modules modules[] = {
   {"sv", ENC_UTF_8, swedish_UTF_8_create_env, swedish_UTF_8_close_env, swedish_UTF_8_stem},
   {"swe", ENC_UTF_8, swedish_UTF_8_create_env, swedish_UTF_8_close_env, swedish_UTF_8_stem},
   {"swedish", ENC_UTF_8, swedish_UTF_8_create_env, swedish_UTF_8_close_env, swedish_UTF_8_stem},
+  {"ta", ENC_UTF_8, tamil_UTF_8_create_env, tamil_UTF_8_close_env, tamil_UTF_8_stem},
+  {"tam", ENC_UTF_8, tamil_UTF_8_create_env, tamil_UTF_8_close_env, tamil_UTF_8_stem},
+  {"tamil", ENC_UTF_8, tamil_UTF_8_create_env, tamil_UTF_8_close_env, tamil_UTF_8_stem},
   {"tr", ENC_UTF_8, turkish_UTF_8_create_env, turkish_UTF_8_close_env, turkish_UTF_8_stem},
   {"tur", ENC_UTF_8, turkish_UTF_8_create_env, turkish_UTF_8_close_env, turkish_UTF_8_stem},
   {"turkish", ENC_UTF_8, turkish_UTF_8_create_env, turkish_UTF_8_close_env, turkish_UTF_8_stem},
@@ -116,6 +120,7 @@ static const char * algorithm_names[] = {
   "russian", 
   "spanish", 
   "swedish", 
+  "tamil",
   "turkish", 
   0
 };

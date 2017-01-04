@@ -64,7 +64,7 @@ func (stmr *Stemmer) Lang() string {
 func (stmr *Stemmer) Stem(word string) string {
 	ptr := unsafe.Pointer(C.CString(word))
 	defer C.free(ptr)
-
+	fmt.Print(word)
 	w := (*C.sb_symbol)(ptr)
 	res := unsafe.Pointer(C.sb_stemmer_stem(stmr.stmr, w, C.int(len(word))))
 	size := C.sb_stemmer_length(stmr.stmr)
@@ -75,6 +75,7 @@ func (stmr *Stemmer) Stem(word string) string {
 
 // LangList returns the list of languages supported by snowball
 func LangList() []string {
+
 	return langList
 }
 
@@ -91,6 +92,7 @@ func init() {
 			break
 		}
 		langList = append(langList, name)
+
 		cp += size
 	}
 }

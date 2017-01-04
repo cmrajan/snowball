@@ -9,14 +9,14 @@ This program will read a file, then print "word -> stem(word)" for every word in
 */
 
 import (
-	"bytes"
+//	"bytes"
 	"flag"
 	"fmt"
 	"io/ioutil"
 	"os"
-	"regexp"
+//	"regexp"
 
-	"github.com/tebeka/snowball"
+	"github.com/cmrajan/snowball"
 )
 
 func main() {
@@ -24,7 +24,7 @@ func main() {
 		fmt.Fprintf(os.Stderr, "usage: %s FILENAME\n", os.Args[0])
 		flag.PrintDefaults()
 	}
-	lang := flag.String("lang", "english", "stemmer language")
+	lang := flag.String("lang", "ta", "stemmer language")
 	flag.Parse()
 
 	if flag.NArg() != 1 {
@@ -46,10 +46,12 @@ func main() {
 		os.Exit(1)
 	}
 
-	re := regexp.MustCompile("[a-zA-Z]+")
+	// re := regexp.MustCompile("[a-zA-Z]+")
 
-	for _, field := range re.FindAll(data, -1) {
-		word := string(bytes.ToLower(field))
-		fmt.Printf("%s -> %s\n", word, stmr.Stem(word))
-	}
+	// for _, field := range re.FindAll(data, -1) {
+	// 	//fmt.Println("%s",field)
+	// 	word := string(bytes.ToLower(field))
+	// 	fmt.Println("word=>",word)
+	// 	fmt.Printf("%s -> %s\n", word, stmr.Stem(word))
+	// }
 }
